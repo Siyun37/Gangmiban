@@ -79,11 +79,6 @@ h1, h2 {
     line-height: 1.6;
 }
 
-.content {
-    margin: 50px 0 50px 0;
-}
-
-
 footer {
     display: flex;
     align-self: center;
