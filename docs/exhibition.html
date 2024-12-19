@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibition Introduction</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .exhibition {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #787773, #f8f5ec, #f8f5ec, #f8f5ec);
+        }
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+
+        .grid-item {
+            background: #ddd;
+            height: 185px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .grid-item img {
+            width: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .content img{
+            margin: 100px 0;
+            padding: 20px 0;
+        }
+
+        /* @media screen and (max-width: 700px) {
+            .grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        } */
+
+        @media screen and (max-width: 1000px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (min-width: 1000px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <main class="exhibition">
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+            </nav>
+        </header>
+
+        <div class="content">
+            
+            <img src="poster.png" title="Poster" width="80%"></img>
+
+            <p>
+                서강대학교 순수미술 동아리 강미반에서 제103회 강미전을 개최합니다.<br><br>
+
+                이번 강미전은 무주제로, 41명의 부원들이 각자의 개성을 담은 작품을 준비했습니다.<br>
+                오는 11월 셋째주에 이주연 갤러리에서 뵙겠습니다.<br><br>
+
+                ㅡ<br><br>
+
+                <img src="identities_typo-black.png" title="identities" width="20%">
+
+                전시 일정 | 2024. 11. 12 (화) ~ 2024. 11. 15 (금) | 09:30-17:00 (금 : -16:00)<br>
+                전시 장소 | 서강대학교 로욜라 도서관 1층 이주연 갤러리<br>
+                참여 작가 | 강유영 곽윤희 김대희 김민혁 김상현 김서윤 김승직 김시윤 김윤서 김정원 김주연 김한별 김형준 노수현 박다슬찬 박서영 박선호 박형규 배승준 백서진 봉승현 손정우 신민지 유예경 유해수 윤소영 윤정인 이도협 이수현 이용욱 이정인 임동준 임주형 장대규 차세연 차유민 한송이 허남경 황주연 Emilia Arndt Lizi Lakia<br><br>
+
+                Exhibition schedule | 12 Nov - 15 Nov, 2024 | 09:30-17:00 (Fri : -16:00)<br>
+                Address | Sogang University Loyola Library 1F<br>
+                Participating artists | 강유영 곽윤희 김대희 김민혁 김상현 김서윤 김승직 김시윤 김윤서 김정원 김주연 김한별 김형준 노수현 박다슬찬 박서영 박선호 박형규 배승준 백서진 봉승현 손정우 신민지 유예경 유해수 윤소영 윤정인 이도협 이수현 이용욱 이정인 임동준 임주형 장대규 차세연 차유민 한송이 허남경 황주연 Emilia Arndt Lizi Lakia<br><br>
+
+                ㅡ<br><br>
+
+            </p>
+
+            <section class="grid" id="gallery"></section>
+
+        </div>
+
+        
+        
+        <div class="top">
+            <a href="#top">↑ Top</a>
+        </div>
+
+        <footer>
+
+            <div class="insta">
+                <a href="https://www.instagram.com/gangmi_ban/"><img src="https://raw.githubusercontent.com/Siyun37/Gangmiban/main/instagram_logo.png" width="50px"></a>
+                <p>Follow us in instagram<br>for latest news!</p>
+            </div>
+            <div class="linktree">
+                <a href="https://linktr.ee/gangmi_ban"><img src="https://raw.githubusercontent.com/Siyun37/Gangmiban/main/linktree_logo.png" width="50px"></a>
+                <p>Visit our linktree<br>for more information!</p>
+                
+            </div>
+
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const gallery = document.getElementById('gallery');
+                const csvFile = 'https://raw.githubusercontent.com/Siyun37/Gangmiban/main/imagesss.csv';
+    
+                async function loadCSV(url) {
+                    const response = await fetch(url);
+                    const data = await response.text();
+                    return data.split('\n').slice(1).map(row => row.split(','));
+                }
+    
+                function createGallery(data) {
+                    data.forEach(item => {
+                        const [number, image] = item;
+    
+                        const div = document.createElement('div');
+                        div.classList.add('grid-item');
+                        div.innerHTML = `
+                            <img src="${image.trim()}" alt="Artwork ${number}" data-id="${number}" />
+                        `;
+
+                        div.querySelector('img').addEventListener('click', (e) => {
+                        const id = e.target.getAttribute('data-id');
+                        window.location.href = `detailed_view.html?id=${id}`;
+                    });
+
+                        gallery.appendChild(div);
+                    });
+                }
+    
+                loadCSV(csvFile)
+                    .then(createGallery)
+                    .catch(err => console.error('Error loading CSV:', err));
+            });
+        </script>
+    </main>
+</body>
+</html>

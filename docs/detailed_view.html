@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed View</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .detailed_screen {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #787773, #f8f5ec, #f8f5ec, #f8f5ec);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 20px 40px 200px 40px;
+            gap: 20px;
+        }
+
+        .main-content {
+            flex: 13;
+            background: #ddd;
+            display: flex;
+            height: auto;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .main-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .side-content {
+            flex: 7;
+            background: #eee;
+            display: flex;
+            height: auto;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .side-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #f8f5ec, #a8a7a3, #a8a7a3, #f8f5ec);
+        }
+
+        footer #items a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        footer #items a:hover {
+            color: #555;
+        }
+
+        @media screen and (max-width: 700px) {
+            .content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="detailed_screen">
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="exhibition.html">Back</a>
+            </nav>
+        </header>
+
+        <div class="content">
+            <div class="main-content">
+                <img id="artwork-image" src="" alt="Artwork">
+            </div>
+            <aside class="side-content">
+                <img id="caption-image" src="" alt="Caption">
+            </aside>
+        </div>
+
+        <div class="top">
+            <a href="#top">↑ Top</a>
+        </div>
+
+        <footer>
+
+            <div class="insta">
+                <a href="https://www.instagram.com/gangmi_ban/"><img src="https://raw.githubusercontent.com/Siyun37/Gangmiban/main/instagram_logo.png" width="50px"></a>
+                <p>Follow us in instagram<br>for latest news!</p>
+            </div>
+            <div class="linktree">
+                <a href="https://linktr.ee/gangmi_ban"><img src="https://raw.githubusercontent.com/Siyun37/Gangmiban/main/linktree_logo.png" width="50px"></a>
+                <p>Visit our linktree<br>for more information!</p>
+                
+            </div>
+
+        </footer>
+
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            // CSV file URL
+            const csvFile = 'https://raw.githubusercontent.com/Siyun37/Gangmiban/main/imagesss.csv';
+
+            // Fetch CSV file and parse data
+            async function loadCSV(url) {
+                const response = await fetch(url);
+                const data = await response.text();
+                return data.split('\n').slice(1).map(row => row.split(','));
+            }
+
+            // Load artwork and caption based on ID
+            function displayDetails(data) {
+                const artworkImage = document.getElementById('artwork-image');
+                const captionImage = document.getElementById('caption-image');
+
+                // Find the matching entry in CSV data
+                const entry = data.find(row => row[0] === id);
+
+                if (entry) {
+                    const [number, artworkUrl, captionUrl] = entry;
+                    artworkImage.src = artworkUrl.trim();
+                    captionImage.src = captionUrl.trim();
+                } else {
+                    document.querySelector('.main-content').innerHTML = `<p>Artwork not found</p>`;
+                    document.querySelector('.side-content').innerHTML = `<p>Caption not available</p>`;
+                }
+            }
+
+            // Load and display details
+            loadCSV(csvFile)
+                .then(displayDetails)
+                .catch(err => console.error('Error loading CSV:', err));
+
+
+        </script>
+    </main>
+</body>
+</html>

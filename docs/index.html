@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>103rd Gangmi Exhibition</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    .home {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .mainscreen {
+        padding: 0;
+        height: 100vh;
+        background-color: #f8f5ec;
+    }
+
+    .mainscreen .background-image {
+        width: 100%;
+        height: 100vh;
+        background-image: url('https://raw.githubusercontent.com/Siyun37/Gangmiban/main/poster.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 0;
+    }
+
+    .mainscreen .background-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+
+    .mainscreen #GoExhibition {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 60px;
+        bottom: 90px;
+        width: 200px;
+        height: 50px;
+        margin: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+        font-family:'Times New Roman', Times, serif;
+        font-size: 1.3rem;
+        z-index: 2;
+    }
+
+    .mainscreen h1 {
+        position: absolute;
+        margin: 500px 0 0 40px;
+        bottom: 20%;
+        font-size: 5rem;
+        text-align: left;
+        color: #f8f5ec;
+        z-index: 2;
+    }
+
+    .mainscreen p {
+        position: absolute;
+        margin: 15px 0 0 40px;
+        bottom: 15%;
+        font-size: 1.5rem;
+        text-align: left;
+        color: #f8f5ec;
+        z-index: 2;
+    }
+
+
+    .content {
+        background: linear-gradient(to bottom, #787773, #f8f5ec, #f8f5ec, #f8f5ec);
+    }
+
+    .content h3 {
+        margin: 300px 0 0 0;
+    }
+
+    @media screen and (max-width: 1020px) {
+        
+        .mainscreen #GoExhibition {
+            position: relative;
+            justify-self: center;
+            right: 0;
+            margin: 20px 0 20px 0;
+
+        }
+    }
+
+
+
+
+
+    </style>
+    
+</head>
+
+
+<body>
+    <header></header>
+    <main class="home">
+        <div class="mainscreen">
+            <div class="background-image"></div>
+
+            <h1>Gangmi Exhibition</h1>
+            <p>Sogang art club, Gangmiban</p>
+
+
+            <a href="exhibition.html" class="btn" id="GoExhibition">Go exhibition</a>
+        </div> <!-- mainscreen -->
+        
+        <div class="content">
+            <h3><span style="color: #f8f5ec">서강대학교 유일의 순수 미술 동아리, 강미반</span></h3><br><br><br><br>
+
+            <p>
+                <span style="font-weight: bold; color: #85837f">강미반은 서강대 유일의 순수 미술 동아리로 오랜 역사와 전통을 가진 동아리입니다.</span><br><br>
+
+                저희 동아리에서는 작가로서 직접 그림을 그리고 전시회를 기획하며, 다양한 장르의 미술 혹은 사진 전시회를 관람하며 함께 감상을 나눕니다.<br><br><br>
+
+                강미반은 학번/전공에 무관하게 그림그리기를 좋아하고 열정이 있으신 분, 평소 작품 감상과 전시회 관람을 좋아하시는 분들을 환영합니다.<br><br>
+                또한 동아리 활동은 그림 실력과 전혀 무관하므로 그림 그리기에 자신이 없으셔도 활동에 아무런 지장이 없으니 전혀 걱정하지 않으셔도 됩니다!<br><br>
+
+                강미반에서 진행되는 활동은 다음과 같습니다.<br><br><br>
+
+                <span style="font-weight: bold;">1. 강미전</span><br><br>
+                : 동아리원 분들이 직접 작가가 되어 공통의 전시 주제를 선정하고 작품을 완성해 전시장에 전시하는 강미전이 매 학기 1회 진행됩니다. 현재 103회까지 진행된 강미전은 101회 '어둠 속에 빛을 수놓으며: 가장 어두운 곳에서 가장 밝게 빛나는 것들', 102회 '흔적: 사실 우리는 언제나 푸르렀다', 103회 'identities: 무제' 등 다양한 주제로 진행되어 왔습니다. 전시는 로욜라 도서관 1층에 위치한 이주연 갤러리에서 주로 진행됩니다. 특히 2023년도 1학기에는 100회 전시를 기념하여 이화여대 앞 라이브 카페인 킬더유튜브와 협업하여 외부 전시를 진행하기도 했습니다.<br><br><br>
+
+                <span style="font-weight: bold;">2. 홍대거리 화방 방문</span><br><br>
+                : 홍대에 위치한 대형 화방에 함께 방문하여 미술 용품을 구매하고 다양한 재료에 대해 알아봅니다.<br><br><br>
+
+                <span style="font-weight: bold;">3. 소규모 드로잉 모임</span><br><br>
+                : 편한 시간대에 동아리방에 모여 작품 활동을 합니다. 동아리 방에 있는 각종 화구를 사용할 수 있으며 2024학년도 1학기에는 갤럭시 캠퍼스의 지원을 받아 갤럭시 탭 s9을 활용한 다양한 디지털 작품 활동 또한 진행했습니다.<br><br><br>
+
+                <span style="font-weight: bold;">4. 드로잉 클래스</span><br><br>
+                : 강의실을 빌려 하나의 주제를 뽑아 드로잉을 진행합니다. 다양한 화법과 재료를 체험해봅니다. 종종 한강, 고궁 등 야외로 나가 그림을 그리기도 합니다.<br><br><br>
+
+                <span style="font-weight: bold;">5. 단체 전시 관람</span><br><br>
+                : 부원들의 의견을 받아 다양한 미술 전시를 함께 관람하고 소감을 나누는 시간을 갖습니다.<br><br><br>
+
+                <span style="font-weight: bold;">6. MT</span><br><br><br>
+
+                <span style="font-weight: bold;">7. 미술 관련 봉사 활동</span><br><br>
+                : 2023학년도 2학기에는 실로암시각장애인복지관에서 진행되는 촉각명화 제작 봉사에 참여했습니다.<br><br><br>
+
+            </p>
+        </div>
+
+        <div class="top">
+            <a href="#top">↑ Top</a>
+        </div>
+
+        <footer>
+
+            <div class="insta">
+                <a href="https://www.instagram.com/gangmi_ban/"><img src="https://raw.githubusercontent.com/Siyun37/Gangmiban/main/instagram_logo.png" width="50px"></a>
+                <p>Follow us in instagram<br>for latest news!</p>
+            </div>
+            <div class="linktree">
+                <a href="https://linktr.ee/gangmi_ban"><img src="https://raw.githubusercontent.com/Siyun37/Gangmiban/main/linktree_logo.png" width="50px"></a>
+                <p>Visit our linktree<br>for more information!</p>
+                
+            </div>
+
+        </footer>
+    </main>
+</body>
+</html>
