@@ -1,0 +1,128 @@
+/* General */
+body {
+    overflow-y: scroll;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f5ec;
+    color: #333;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 10px;
+    gap: 5px;
+}
+
+header nav a {
+    justify-content: flex-start;
+    text-decoration: none;
+    display: inline-block;
+    width: 40px;
+    padding: 15px;
+    margin: 20px 10px;
+    background: #a8a7a3;
+    border-radius: 5px;
+    color: #f8f5ec;
+}
+
+
+header nav a:hover {
+    background: #949086;
+    color: #cac6bb;
+}
+
+main {
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2c2c2c;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+.top a{
+    bottom: 20px;
+    margin: 0;
+    padding: 10px;
+    color: #a8a7a3;
+    text-align: center;
+    text-decoration: none;
+}
+
+.top a:hover {
+    color: #ece5d0;
+}
+
+
+
+.content p {
+    white-space: pre-line;
+    word-wrap: break-word;
+    word-break: break-word;
+    padding: 0 10% 0 10%;
+    margin: 50px auto;
+    line-height: 1.6;
+}
+
+
+footer {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 70%;
+    flex-direction: row;
+    margin: 40px 40px 0 40px;
+    padding: 20px;
+    gap: 40px;
+    background: linear-gradient(to right, #f8f5ec, #a8a7a3,  #a8a7a3, #f8f5ec);
+    text-align: center;
+    
+}
+
+footer img {
+    margin: 0;
+    padding: 0;
+}
+
+footer .insta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer .linktree {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer p {
+    text-align: center;
+}
+
+footer a{
+    padding: 0 20px 0 20px;
+    text-align: center;
+    color: #ece5d0;
+}
+
+footer a:hover {
+    color: white;
+}
